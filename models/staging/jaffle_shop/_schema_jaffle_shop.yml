@@ -22,7 +22,7 @@ models:
                 - "shipped"
   - name: stg_jaffle_shop__products
     columns:
-      - name: sku
+      - name: product_id
         data_tests:
           - unique
           - not_null
