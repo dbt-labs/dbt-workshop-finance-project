@@ -9,11 +9,13 @@ source as (
 renamed as (
 
     select
-        sku,
-        name as product_name,
-        type as product_type,
-        description,
-        price
+        product_id,
+        product_name,
+        product_type,
+        product_description,
+        product_price,
+        is_food_item,
+        is_drink_item
 
     from source
 
