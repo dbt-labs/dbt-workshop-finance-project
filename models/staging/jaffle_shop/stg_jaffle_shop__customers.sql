@@ -9,6 +9,7 @@ source as (
 renamed as (
 
     select
+        null as row_id,
         id as customer_id,
         first_name,
         last_name
