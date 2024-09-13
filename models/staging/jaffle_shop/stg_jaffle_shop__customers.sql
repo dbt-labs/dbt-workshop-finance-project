@@ -9,10 +9,10 @@ source as (
 renamed as (
 
     select
-        null as row_id,
         id as customer_id,
-        first_name,
-        last_name
+        upper(first_name) as first_name,
+        upper(last_name) as last_name
+        
 
     from source
 
