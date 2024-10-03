@@ -1,3 +1,13 @@
+models:
+  - name: fct_orders
+    columns:
+      - name: amount_usd
+        # tests:
+        #   - greater_than_zero
+        #   - greater_than_number:
+        #       number: 1000
+
+
 # unit_tests:
 #   - name: check_fiscal_quarters
 #     description: >
@@ -18,3 +28,5 @@
 #   #   order_date: 2025-02-01, fiscal_quarter: Q2 2025
 #   #   order_date: 2022-02-01, fiscal_quarter: Q1 2022
     
+
+              
