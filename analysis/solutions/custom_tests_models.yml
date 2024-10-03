@@ -1,0 +1,9 @@
+# Commenting out so not an error with other ymls for fct_orders
+
+# models:
+#   - name: fct_orders
+#     columns:
+#       - name: amount_usd
+#         tests:
+#           - check_decimal_data_type
+              
