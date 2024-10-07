@@ -2,10 +2,11 @@ models:
   - name: fct_orders
     columns:
       - name: amount_usd
-        # tests:
-        #   - greater_than_zero
-        #   - greater_than_number:
-        #       number: 1000
+        tests:
+          - field_type_is_decimal
+          - greater_than_zero
+          - greater_than_number:
+              number: 1000
 
 
 # unit_tests:
