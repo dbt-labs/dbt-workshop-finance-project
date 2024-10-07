@@ -1,0 +1,32 @@
+models:
+  - name: dim_customers
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+
+# unit_tests:
+#   - name: test_customer_tier
+#     description: Test that the customer tier logic tests all known edge cases
+#     model: dim_customers
+#     given:
+#       - input: ref('stg_jaffle_shop__customers')
+#         rows:
+#           - {customer_id: 1}
+#           - {customer_id: 2}
+#           - {customer_id: 3}
+#           - {customer_id: 4}
+#       - input: ref('fct_orders')
+#         rows:
+#           - {customer_id: 1, amount_usd: 100}
+#           - {customer_id: 2, amount_usd: 20}
+#           - {customer_id: 3, amount_usd: 5}
+#     expect:
+#       rows:
+#         - {customer_id: 1, tier_name: tier1}
+#         - {customer_id: 2, tier_name: tier2}
+#         - {customer_id: 3, tier_name: tier4}
+#         - {customer_id: 4, tier_name: no tier}
+      
+      
+    

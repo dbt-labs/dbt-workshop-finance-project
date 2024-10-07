@@ -21,10 +21,29 @@ final as (
         orders.order_id,
         orders.customer_id,
         orders.order_date,
+        case when year(orders.order_date) < 2025 and month(orders.order_date) in (1,2,3)
+            then 'Q1 '||year(orders.order_date)
+             when year(orders.order_date) < 2025 and month(orders.order_date) in (4,5,6)
+            then 'Q2 '|| year(orders.order_date)
+            when year(orders.order_date) < 2025 and month(orders.order_date) in (7,8,9)
+            then 'Q3 '|| year(orders.order_date)
+            when year(orders.order_date) < 2025 and month(orders.order_date) in (10,11,12) 
+            then 'Q4 '||year(orders.order_date) 
+            when month(orders.order_date) in (1,2,3)
+            then 'Q2 '||year(orders.order_date)
+             when month(orders.order_date) in (4,5,6)
+            then 'Q3 '|| year(orders.order_date)
+            when month(orders.order_date) in (7,8,9)
+            then 'Q4 '|| year(orders.order_date)
+            when month(orders.order_date) in (10,11,12) 
+            then 'Q1 '||year(orders.order_date)
+            else 'CHECK'
+        end as fiscal_quarter, 
         coalesce(order_payments.amount_usd, 0) as amount_usd
 
     from orders
-    left join order_payments using (order_id)
+    inner join order_payments using (order_id)
 )
 
 select * from final
+order by customer_id
