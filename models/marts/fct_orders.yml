@@ -2,10 +2,11 @@ models:
   - name: fct_orders
     columns:
       - name: amount_usd
-        # tests:
+        tests:
         #   - greater_than_zero
         #   - greater_than_number:
         #       number: 1000
+          - is_decimal
 
 
 # unit_tests:

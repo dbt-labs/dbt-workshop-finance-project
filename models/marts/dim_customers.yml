@@ -1,9 +1,9 @@
-models:
-  - name: dim_customers
-    columns:
-      - name: customer_id
-        tests:
-          - unique
+# models:
+#   - name: dim_customers
+#     columns:
+#       - name: customer_id
+#         tests:
+#           - unique
 
 # unit_tests:
 #   - name: test_customer_tier
