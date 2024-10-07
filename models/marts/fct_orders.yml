@@ -2,24 +2,32 @@ models:
   - name: fct_orders
     columns:
       - name: amount_usd
-        # tests:
-        #   - greater_than_zero
-        #   - greater_than_number:
-        #       number: 1000
+        tests:
+          - greater_than_zero
+          - greater_than_number:
+              number: 1000
+          - type_decimal
 
 
-# unit_tests:
-#   - name: check_fiscal_quarters
-#     description: >
-#       "Check that fiscal quarters prior to 2025 match calendar quarters. 
-#       Starting in 2025 check that fiscal quarters are a full quarter ahead of calendar quarter"
-#     model: 
-#     given:
-#       - input:
-#         rows:
-
-#     expect:
-#       rows:
+unit_tests:
+  - name: check_fiscal_quarters
+    description: >
+      "Check that fiscal quarters prior to 2025 match calendar quarters. 
+      Starting in 2025 check that fiscal quarters are a full quarter ahead of calendar quarter"
+    model: fct_orders
+    given:
+      - input: ref('stg_jaffle_shop__orders')
+        rows:
+          - {order_id: 1, order_date: 2022-12-01}
+          - {order_id: 2, order_date: 2025-12-01}
+          - {order_id: 3, order_date: 2025-02-01}
+          - {order_id: 4, order_date: 2022-02-01}
+      - input: ref('stg_stripe__payment')
+        rows:
+          - {order_id: 1}
+          - {order_id: 2}
+          - {order_id: 3}
+          - {order_id: 4}
 
 
 # # I want to test:
