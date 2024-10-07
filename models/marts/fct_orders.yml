@@ -3,10 +3,7 @@ models:
     columns:
       - name: amount_usd
         tests:
-          # - greater_than_zero
-          # - greater_than_number:
-          #     number: 1000
-          - typeof_field
+          - typeof_field:
               value: 'DECIMAL'
 
 

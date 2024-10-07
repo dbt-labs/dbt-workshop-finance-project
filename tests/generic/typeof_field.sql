@@ -1,4 +1,4 @@
-{% test type_of_field(model, column_name, value) %}
+{% test typeof_field(model, column_name, value) %}
 
 select typeof({{ column_name }})
 from {{ model }}
