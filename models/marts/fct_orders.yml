@@ -3,7 +3,7 @@ models:
     columns:
       - name: amount_usd
         tests:
-          - check_deciaml
+          - check_decimal
         #   - greater_than_zero
         #   - greater_than_number:
         #       number: 1000
