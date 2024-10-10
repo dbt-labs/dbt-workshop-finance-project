@@ -27,9 +27,10 @@ final as (
         coalesce(customer_orders.number_of_orders, 0) as number_of_orders,
         case 
             when lifetime_value > 50 then 'tier1'
-            when lifetime_value <=50 then 'tier2'
+            when lifetime_value between 20 and 50 then 'tier2'
             when lifetime_value between 10 and 19 then 'tier3'
-            when lifetime_value between 0 and 9 then 'tier4' 
+            when lifetime_value between 0 and 9 then 'tier4'
+            else 'no tier' 
         end as tier_name,
         customer_orders.lifetime_value
     from customers
