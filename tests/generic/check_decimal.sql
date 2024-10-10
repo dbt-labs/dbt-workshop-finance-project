@@ -3,6 +3,6 @@
 select
     {{ column_name }} 
 from {{ model }}
-where {{ column_name }} IS NOT TYPEOF DECIMAL
+where {{ column_name }} <> TYPEOF DECIMAL
 
 {% endtest %}
