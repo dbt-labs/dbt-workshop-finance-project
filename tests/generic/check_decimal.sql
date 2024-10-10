@@ -3,6 +3,6 @@
 select
     {{ column_name }} 
 from {{ model }}
-where {{ column_name }} <> TYPEOF DECIMAL
+where typeof({{ column_name }}) <> DECIMAL
 
 {% endtest %}
