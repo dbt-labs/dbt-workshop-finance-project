@@ -9,7 +9,7 @@ customer_orders as (
         customer_key,
         min (order_date) as first_order_date,
         max (order_date) as most_recent_order_date,
-        count(order_id) as number_of_orders,
+        count(order_key) as number_of_orders,
         sum(gross_item_sales_amount) as lifetime_value
     from orders
     group by 1
